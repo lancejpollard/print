@@ -1,0 +1,20 @@
+{
+  "name": "print",
+  "repo": "viatropos/print",
+  "description": "Print component",
+  "version": "0.0.1",
+  "keywords": [],
+  "author": "Lance Pollard <lancejpollard@gmail.com>",
+  "dependencies": {
+    "tower/style-rule": "*"
+  },
+  "development": {
+    "visionmedia/mocha": "*",
+    "timoxley/assert": "*"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "license": "MIT",
+  "remotes": []
+}
