@@ -1,14 +1,30 @@
 
 /**
- * Print stylesheet.
+ * Module dependencies.
  */
 
-var el = document.createElement('style');
-el.setAttribute('id', '__printer__');
-el.setAttribute('media', 'print');
-document.getElementsByTagName('head')[0].appendChild(el);
-var style = el.sheet || el.styleSheet;
-el = undefined;
+var event = require('event');
+
+/**
+ * Print iframe.
+ *
+ * @see http://stackoverflow.com/questions/5946607/is-an-empty-iframe-src-valid
+ */
+
+var iframe = document.createElement('iframe');
+iframe.setAttribute('id', 'print-iframe');
+iframe.setAttribute('src', 'about:blank');
+iframe.style.width = iframe.style.height = 0;
+iframe.style.border = 'none';
+
+(function(){
+  event.bind(window, 'load', onload);
+
+  function onload() {
+    event.unbind(window, 'load', onload);
+    document.body.appendChild(iframe);
+  }
+})();
 
 /**
  * Expose `print`.
@@ -20,16 +36,25 @@ module.exports = print;
  * Print HTML elements on a printer.
  */
 
-function print(el) {
-  var id = el.getAttribute('id');
+function print(str) {
+  if ('string' != typeof str) {
+    // XXX: outerhtml
+    // http://bytes.com/topic/misc/answers/629926-ie7-printing-iframe-solution
+    // ie7: document.execCommand('print', false, null);
+  }
 
-  style.insertRule('body * { display: none; }', 0);
-  style.insertRule('#' + id + ' { display: block; }', 1);
+  var printer = iframe.contentWindow
+    ? iframe.contentWindow
+    : iframe.contentDocument.document
+      ? iframe.contentDocument.document
+      : iframe.contentDocument;
 
-  window.print();
+  printer.document.open();
+  printer.document.write(str);
+  //printer.document.close();
+  printer.print();
 
   setTimeout(function(){
-    style.deleteRule(1);
-    style.deleteRule(0);
-  }, 1000);
+    printer.document.close();
+  }, 2000);
 }
