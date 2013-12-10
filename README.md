@@ -2,8 +2,6 @@
 
 Print HTML elements on a printer.
 
-It works by dynamically creating a print block in CSS.
-
 ## Installation
 
 ```bash
