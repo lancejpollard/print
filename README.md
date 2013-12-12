@@ -1,6 +1,6 @@
 # Print
 
-Print HTML elements on a printer.
+Print HTML elements on a printer. Works on IE8+.
 
 ## Installation
 
