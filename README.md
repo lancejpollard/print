@@ -16,6 +16,8 @@ var print = require('print');
 print('<img id="image" src="http://tower.github.io/logo.png"/>');
 ```
 
+[![http://i.imgur.com/EOxDujY.png](http://i.imgur.com/EOxDujY.png)](https://github.com/viatropos/print/blob/master/index.js)
+
 ## Licence
 
 MIT
