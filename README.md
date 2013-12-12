@@ -13,7 +13,7 @@ component install viatropos/print
 ```js
 var print = require('print');
 
-print(document.querySelector('img'));
+print('<img id="image" src="http://tower.github.io/logo.png"/>');
 ```
 
 ## Notes

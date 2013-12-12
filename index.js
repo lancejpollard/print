@@ -39,12 +39,6 @@ module.exports = print;
  */
 
 function print(str) {
-  if ('string' != typeof str) {
-    // XXX: outerhtml
-    // http://bytes.com/topic/misc/answers/629926-ie7-printing-iframe-solution
-    // ie7: document.execCommand('print', false, null);
-  }
-
   var css = [
     '<style type="text/css" media="print">',
     '  @page {',
