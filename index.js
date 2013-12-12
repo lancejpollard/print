@@ -65,12 +65,15 @@ function print(str) {
       ? iframe.contentDocument.document
       : iframe.contentDocument;
 
-  printer.document.open();
+  printer.document.open('text/html', 'replace');
+  printer.document.onreadystatechange = onready;
   printer.document.write(css + str);
-  //printer.document.close();
-  printer.print();
+  printer.document.close();
 
-  setTimeout(function(){
-    printer.document.close();
-  }, 2000);
+  function onready() {
+    if ('complete' == printer.document.readyState) {
+      printer.document.body.focus();
+      printer.print();
+    }
+  }
 }

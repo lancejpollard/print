@@ -20,6 +20,7 @@ print(document.querySelector('img'));
 
 - http://davidwalsh.name/add-rules-stylesheets
 - http://stackoverflow.com/questions/10026741/callback-function-after-javascript-print-dialogue
+- http://stackoverflow.com/questions/19009739/print-iframe-in-ie10-doesnt-work
 
 ## Licence
 
