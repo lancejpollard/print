@@ -71,7 +71,7 @@ function print(str) {
       try {
         // <= IE9
         printer.document.execCommand('print', false, null);
-      } catch {
+      } catch (err) {
         printer.print(); 
       }
     }
