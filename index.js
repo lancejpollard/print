@@ -11,6 +11,7 @@ var event = require('event');
  * @see http://stackoverflow.com/questions/5946607/is-an-empty-iframe-src-valid
  * @see http://stackoverflow.com/questions/1542320/margin-while-printing-html-page
  * @see http://stackoverflow.com/questions/1960939/disabling-browser-print-options-headers-footers-margins-from-page/2780518#2780518
+ * @see http://bytes.com/topic/misc/answers/629926-ie7-printing-iframe-solution
  */
 
 var iframe = document.createElement('iframe');
