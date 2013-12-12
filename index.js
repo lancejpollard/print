@@ -73,7 +73,12 @@ function print(str) {
   function onready() {
     if ('complete' == printer.document.readyState) {
       printer.document.body.focus();
-      printer.print();
+      try {
+        // <= IE9
+        printer.document.execCommand('print', false, null);
+      } catch {
+        printer.print(); 
+      }
     }
   }
 }
